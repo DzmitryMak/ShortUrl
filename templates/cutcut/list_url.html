@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %} Логин {% endblock %}
+
+{% block content %}
+    {% for el in urls %}
+
+            {% if el.author == user.get_username %}
+                {{ el.long }}<br><br>
+                http://127.0.0.1:8000/{{ el.short }}<br><br>
+            {% endif %}
+        <hr>
+    {% endfor %}
+{% endblock %}
