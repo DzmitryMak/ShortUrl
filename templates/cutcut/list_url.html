@@ -7,8 +7,6 @@
             {% if el.author != username %}
                 {{ el.long }}<br><br>
                 http://127.0.0.1:8000/{{ el.short }}<br><br>
-                {{ el.author }}
-                {{ username }}
             {% endif %}
         <hr>
     {% endfor %}

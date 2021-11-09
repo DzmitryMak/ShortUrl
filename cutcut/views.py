@@ -15,13 +15,14 @@ def create(request):
             long = request.POST['long']
             if Url.objects.filter(long=long).exists():
                 already_in_db = Url.objects.get(long=long)
+                request.user.url_set.add(already_in_db)
                 data = {'short': 'http://127.0.0.1:8000/' + already_in_db.short, 'form': form}
                 return render(request, 'cutcut/shortener.html', data)
             short = str(base64.b64encode(long.encode()))[-7:-1]
             new_url = form.save(commit=False)
             new_url.short = short
-            new_url.author = request.user
             new_url.save()
+            new_url.author.add(request.user)
             data = {'short': 'http://127.0.0.1:8000/' + short, 'form': form}
             return render(request, 'cutcut/shortener.html', data)
         else:
@@ -38,8 +39,7 @@ def redir(request, pk):
 
 def list_url(request):
     if request.user.is_authenticated:
-        username = request.user.username
-        urls = Url.objects.all().filter(author__username=username)
+        urls = request.user.url_set.all()
     else:
         return redirect('login')
-    return render(request, 'cutcut/list_url.html', {'urls': urls, 'username': username})
+    return render(request, 'cutcut/list_url.html', {'urls': urls})
