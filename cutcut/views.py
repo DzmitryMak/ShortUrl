@@ -2,12 +2,14 @@ import base64
 from django.shortcuts import render, redirect, HttpResponse
 from . models import Url
 from .forms import UrlForm
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
     return render(request, 'base.html')
 
 
+@login_required
 def create(request):
     if request.method == 'POST':
         form = UrlForm(request.POST)
