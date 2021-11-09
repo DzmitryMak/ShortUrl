@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
 
-{% block title %} Логин {% endblock %}
+{% block title %} Вход пользователя {% endblock %}
 
 {% block content %}
 
     {% if form.errors %}
         ERROR
     {% else %}
+        <h2>Вход пользователя</h2>
         <form action="." method="post">
         <table>
             {{ form.as_table }}
             </table>
             {% csrf_token %}
             <input type="hidden" name="next" value="{{ next }}">
-            <input type="submit" value="Login">
+            <input type="submit" value="Войти">
         </form>
     {% endif %}
 {% endblock %}

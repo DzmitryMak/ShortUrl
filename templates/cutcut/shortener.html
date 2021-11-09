@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 
-{% block title %} Логин {% endblock %}
+{% block title %} Сократитель ссылок {% endblock %}
 
 {% block content %}
+    <h2>Сократитель ссылок</h2>
 <form method="post">
     {% csrf_token %}
-    {{ form.long }}<br>
-    <button type="submit">cut</button>
+    Введите ссылку<br>
+    {{ form.long }}<br><br>
+    <a href="{{ short }}"> {{ short }}</a><br><br>
+    <button type="submit">Сократить</button>
     </form>
 
-    {{ short }}
 {% endblock %}

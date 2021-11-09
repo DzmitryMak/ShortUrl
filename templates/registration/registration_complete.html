@@ -3,7 +3,8 @@
 {% block title %} Регистрация нового пользователя {% endblock %}
 
 {% block content %}
-    <h1>hi {{ user.username }}</h1>
-    <a href="{% url 'login' %}"> логин </a>
+    <h1>Пользователь {{ user.username }} зарегестрирован</h1>
+
+    <a href="{% url 'login' %}"> Войти </a>
 
 {% endblock %}

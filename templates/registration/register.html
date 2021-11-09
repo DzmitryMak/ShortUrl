@@ -3,10 +3,12 @@
 {% block title %} Регистрация нового пользователя {% endblock %}
 
 {% block content %}
-    {% csrf_token %}
+    <h2>Регистрация нового пользователя</h2>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        <table>
+        {{ form.as_table }}
+        </table>
         <input type="hidden" name="next" value="{{ next }}">
         <input type="submit" value="Регистрация">
     </form>

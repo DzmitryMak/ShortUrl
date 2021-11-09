@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 
-{% block title %} Логин {% endblock %}
+{% block title %} Список всех ссылок {% endblock %}
 
 {% block content %}
+    <h2>Список сокращенных ссылок пользователя: {{ user.username }}</h2>
     {% for el in urls %}
             {% if el.author != username %}
-                {{ el.long }}<br><br>
-                http://127.0.0.1:8000/{{ el.short }}<br><br>
+                <table>
+                <h4>Оригинальная ссылка</h4>{{ el.long }}<br><br>
+                <h4>Сокращенная ссылка</h4> <a href="//127.0.0.1:8000/{{ el.short }}">//127.0.0.1:8000/{{ el.short }}</a><br><br>
+                </table>
             {% endif %}
         <hr>
     {% endfor %}
