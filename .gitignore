@@ -107,4 +107,4 @@ venv.bak/
 .idea/
 .tox/
 .gitignore/
-makeshorturl/secrets.py
+makeshorturl/secrets.py/
