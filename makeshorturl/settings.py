@@ -1,5 +1,5 @@
 from pathlib import Path
-from makeshorturl.secret_keyy import key
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = key
+SECRET_KEY = 'django-insecure-(inp1emeku2ktgb4kf&*b3=r*c=hudipol28kr@g3hwo=q0v^='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -45,8 +45,7 @@ ROOT_URLCONF = 'makeshorturl.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,4 +119,3 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_URL = '/logout/'
 LOGOUT_REDIRECT_URL = '/'
-

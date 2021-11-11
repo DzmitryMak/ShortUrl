@@ -7,6 +7,7 @@ def home(request):
 
 
 def register(request):
+    """register new user"""
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():

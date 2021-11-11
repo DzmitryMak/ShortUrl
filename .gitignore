@@ -111,4 +111,4 @@ venv.bak/
 # wtf
 makeshorturl/secret_keyy.py
 makeshorturl/secret_keyy
-.secret_keyy
+secret_keyy.py

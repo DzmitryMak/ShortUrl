@@ -11,6 +11,8 @@ def home(request):
 
 @login_required
 def create(request):
+    """Create new model URL. Attribute short is obtained by encoding base64
+    If URL.long already in db, just return short URL.short, and add new author"""
     if request.method == 'POST':
         form = UrlForm(request.POST)
         if form.is_valid():
@@ -35,11 +37,13 @@ def create(request):
 
 
 def redir(request, pk):
+    """func just redirect to original url """
     new = Url.objects.get(short=pk)
     return redirect(new.long)
 
 
 def list_url(request):
+    """show all URLs of authorized author"""
     if request.user.is_authenticated:
         urls = request.user.url_set.all()
     else:
